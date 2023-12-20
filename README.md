@@ -28,121 +28,141 @@ Publish the website in the given URL.
 ```
 calc.html
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STANDARD CALCULATOR</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<html lang="en">
+  <head>
+    
+    <title>Calculator in HTML CSS & JavaScript</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    
+    <div class="container">
+      <h1 align="center">HARIHARAN's CALCULATOR</h1> 
+      <h2 align="center">REGISTER NUMBER:212223240047</h2>
+      
+      <input type="text" class="display" />
 
-<div class="container">
-  <div class="calculator">
-    <form>
-      <div class="display">
-        <input type="text" name="display">
-      </div>
-      <div>
-        <input type="button" value="AC" onclick="display.value = '' " class="operator">
-        <input type="button" value="DE" onclick="display.value =  display.value.toString().slice(0,-1)" class="operator">
-        <input type="button" value="." onclick="display.value += '.' " class="operator">
-        <input type="button" value="/" onclick="display.value += '/' " class="operator">
-      </div>
-      <div>
-        <input type="button" value="7" onclick="display.value += '7' ">
-        <input type="button" value="8" onclick="display.value += '8' ">
-        <input type="button" value="9" onclick="display.value += '9' ">
-        <input type="button" value="*" onclick="display.value += '*' " class="operator">
-      </div>
-      <div>
-        <input type="button" value="4" onclick="display.value += '4' ">
-        <input type="button" value="5" onclick="display.value += '5' ">
-        <input type="button" value="6" onclick="display.value += '6' ">
-        <input type="button" value="-" onclick="display.value += '-' " class="operator">
-      </div>
-      <div>
-        <input type="button" value="1" onclick="display.value += '1' ">
-        <input type="button" value="2" onclick="display.value += '2' ">
-        <input type="button" value="3" onclick="display.value += '3' ">
-        <input type="button" value="+" onclick="display.value += '+' " class="operator">
-      </div>
-      <div>
-        <input type="button" value="00" onclick="display.value += '00' ">
-        <input type="button" value="0" onclick="display.value += '0' ">
-        <input type="button" value="=" onclick="display.value = eval(display.value)" class="equal operator">
-       
-      </div>
-    </form>
-  </div>
-</div>
+      <div class="buttons">
+        <button class="operator" data-value="AC">AC</button>
+        <button class="operator" data-value="DEL">DEL</button>
+        <button class="operator" data-value="%">%</button>
+        <button class="operator" data-value="/">/</button>
 
+        <button data-value="7">7</button>
+        <button data-value="8">8</button>
+        <button data-value="9">9</button>
+        <button class="operator" data-value="*">*</button>
 
-</body>
+        <button data-value="4">4</button>
+        <button data-value="5">5</button>
+        <button data-value="6">6</button>
+        <button class="operator" data-value="-">-</button>
+
+        <button data-value="1">1</button>
+        <button data-value="2">2</button>
+        <button data-value="3">3</button>
+        <button class="operator" data-value="+">+</button>
+
+        <button data-value="0">0</button>
+        <button data-value="00">00</button>
+        <button data-value=".">.</button>
+        <button class="operator" data-value="=">=</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
 
 style.css
 
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
+/* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: whitesmoke;
 }
 
+.container {
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 12px;
+  padding: 10px 20px 20px;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+.display {
+  height: 80px;
+  width: 100%;
+  outline: none;
+  border: none;
+  text-align: right;
+  margin-bottom: 10px;
+  font-size: 25px;
+  color: #000e1a;
+  pointer-events: none;
+}
+.buttons {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+}
+.buttons button {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #eee;
+}
+.buttons button:active {
+  transform: scale(0.99);
+}
+.operator {
+  color: #2f9fff;
+}
+```
+script.js
 
-.container{
-    width: 100%;
-    height: 100vh;
-    background: #e3f9ff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.calculator{
-    background: #3a4452;
-    padding: 20px;
-    border-radius: 10px;
-}
-.calculator form input{
-    border: 0;
-    outline: 0;
-    width: 60px;
-    height: 60px;
-    border-radius: 10px;
-    box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1),5px 5px 15px rgba(0, 0, 0, 0.2);
-    background: transparent;
-    font-size: 20px;
-    color: #fff;
-    cursor: pointer;
-    margin: 10px;
-}
+```
+const display = document.querySelector(".display");
+const buttons = document.querySelectorAll("button");
+const specialChars = ["%", "*", "/", "-", "+", "="];
+let output = "";
 
-form .display{
-    display: flex;
-    justify-content: flex-end;
-    margin: 20px 0;
-}
-form .display input{
-    text-align: right;
-    flex: 1;
-    font-size: 45px;
-    box-shadow: none;
-}
-form input.equal{
-    width: 145px;
-}
+const calculate = (btnValue) => {
+  display.focus();
+  if (btnValue === "=" && output !== "") {
+    output = eval(output.replace("%", "/100"));
+  } else if (btnValue === "AC") {
+    output = "";
+  } else if (btnValue === "DEL") {
+    output = output.toString().slice(0, -1);
+  } else {
+    if (output === "" && specialChars.includes(btnValue)) return;
+    output += btnValue;
+  }
+  display.value = output;
+};
 
-
-
-form input.operator{
-    color: #33ffd8;
-}
+buttons.forEach((button) => {
+  button.addEventListener("click", (e) => calculate(e.target.dataset.value));
+});
 
 ```
 
 ## OUTPUT:
-![Alt text](<Screenshot (11).png>)
-
+![Alt text](<Screenshot (15).png>)
+![Alt text](<Screenshot (16).png>)
 ## RESULT:
 The program for designing a standard calculator using HTML and CSS is executed successfully.
