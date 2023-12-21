@@ -131,10 +131,10 @@ body {
 .operator {
   color: #2f9fff;
 }
-```
+
 script.js
 
-```
+
 const display = document.querySelector(".display");
 const buttons = document.querySelectorAll("button");
 const specialChars = ["%", "*", "/", "-", "+", "="];
